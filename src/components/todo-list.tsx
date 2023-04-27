@@ -55,7 +55,7 @@ function TodoItem({ todo, onDelete, onToggle }: TodoItemProps) {
   return (
     <div className="w-full bg-gray-500 p-4 flex items-start gap-4 rounded-lg border-2 border-gray-400">
       <CheckButton onClick={() => onToggle(todo.id)} selected={todo.isCompleted} />
-      <span className="text-gray-100 text-sm">{todo.description}</span>
+      <span className={`w-full text-gray-100 text-sm ` + (todo.isCompleted && 'line-through text-gray-300')}>{todo.description}</span>
       <DeleteButton onClick={() => onDelete(todo.id)} />
     </div >
   )
@@ -71,7 +71,7 @@ export function TodoList({ todos, onDelete, onToggle }: TodoListProps) {
   return (
     <>
       {todos.length > 0 && (
-        <section className="flex flex-col gap-4 mb-20">
+        <section className="w-full flex flex-col gap-4 mb-20">
           {todos.map((todo) => (
             <TodoItem todo={todo} onDelete={onDelete} onToggle={onToggle} />
           ))}

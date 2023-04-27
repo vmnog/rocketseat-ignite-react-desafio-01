@@ -11,26 +11,8 @@ export type Todo = {
   id: number;
 }
 
-const TODOS: Todo[] = [
-  {
-    id: 0,
-    isCompleted: false,
-    description: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.'
-  },
-  {
-    id: 1,
-    isCompleted: true,
-    description: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.'
-  },
-  {
-    id: 2,
-    isCompleted: true,
-    description: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.'
-  }
-]
-
 function App() {
-  const [todos, setTodos] = useState<Todo[]>(TODOS);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   function handleDeleteTodo(id: Todo['id']): void {
     const todosWithoutDeletedOne = todos.filter(todo => todo.id !== id);
@@ -47,12 +29,16 @@ function App() {
     setTodos(newTodos);
   }
 
+  function handleAddTodo(description: Todo['description']): void {
+    setTodos((state) => [...state, { id: state.length + 1, isCompleted: false, description }]);
+  }
+
   return (
     <>
       <div className="w-full h-52 bg-gray-700" />
-      <div className="max-w-[46rem] mx-auto flex flex-col items-center align-center gap-14 -mt-[8.3rem]">
+      <div className="max-w-2xl mx-auto flex flex-col items-center align-center gap-14 -mt-[8.3rem]">
         <img src={todoLogo} alt="" />
-        <AddTodo />
+        <AddTodo onAddTodo={handleAddTodo} />
         <TaskCounter todos={todos} />
         <TodoList todos={todos} onDelete={handleDeleteTodo} onToggle={handleToggleTodo} />
       </div>
