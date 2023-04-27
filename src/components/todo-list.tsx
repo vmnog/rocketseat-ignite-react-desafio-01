@@ -15,10 +15,10 @@ function EmptyList() {
 function CheckButton({ selected }: { selected: boolean }) {
   return (
     <div className={
-      `w-[17.45px] h-[17.45px] flex-none rounded-full border-2 border-blue hover:bg-blueDark cursor-pointer`
+      `w-[17.45px] h-[17.45px] flex-none rounded-full border-2 border-blue hover:bg-blueDark cursor-pointer `
       + (selected && ` bg-purpleDark border-none hover:bg-purple`)
     }>
-      {selected && <img src={check} alt="" className="ml-[3px] mt-[5.5px]" />}
+      {selected && <img src={check} alt="" className="ml-[3.5px] mt-[5.5px]" />}
     </div>
   )
 }
@@ -34,7 +34,7 @@ function DeleteButton() {
 }
 
 function TodoItem() {
-  const selected = true;
+  const selected = false;
 
   return (
     <div className="w-full bg-gray-500 p-4 flex items-start gap-4 rounded-lg border-2 border-gray-400">
@@ -48,11 +48,13 @@ function TodoItem() {
 export function TodoList() {
   return (
     <>
-      <section className="flex flex-col gap-4">
-        {[1, 2, 3, 4].map(() => (
-          <TodoItem />
-        ))}
-      </section>
+      {true && (
+        <section className="flex flex-col gap-4 mb-20">
+          {[1, 2, 3, 4].map(() => (
+            <TodoItem />
+          ))}
+        </section>
+      )}
       {false && <EmptyList />}
     </>
   )
