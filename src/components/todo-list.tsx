@@ -73,7 +73,7 @@ export function TodoList({ todos, onDelete, onToggle }: TodoListProps) {
       {todos.length > 0 && (
         <section className="w-full flex flex-col gap-4 mb-20">
           {todos.map((todo) => (
-            <TodoItem todo={todo} onDelete={onDelete} onToggle={onToggle} />
+            <TodoItem key={todo.id} todo={todo} onDelete={onDelete} onToggle={onToggle} />
           ))}
         </section>
       )}
