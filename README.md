@@ -4,6 +4,8 @@ This is a simple yet powerful ToDo application, built with React and TypeScript.
 
 <img src="https://github.com/vmnog/todo/blob/main/Todo.png?raw=true" alt="" />
 
+> 🟢 Check live demo [here](https://vmnog.github.io/todo/)
+
 ## Figma Design
 
 The user interface of the ToDo application was designed using Figma. You can view the design [here](https://www.figma.com/file/0n0zDN7zbzhRbaEO74Xesx/ToDo-List/duplicate).
